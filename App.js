@@ -1,19 +1,20 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Login from './src/screens/Login';
-import StartScreen from './src/screens/StartScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomePage from './src/screens/InstaHome/HomePage';
-import Test from './src/screens/Test';
+import BottomTabs from './src/NavigationScreens/BottomTabs';
+import StartScreen from './src/screens/StartScreen';
+import StatusScreen from './src/screens/StatusScreen';
 
 const Stack = createNativeStackNavigator();
+
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
+      <Stack.Navigator initialRouteName="welcome">
         <Stack.Screen
-          name="home"
+          name="welcome"
           component={StartScreen}
           options={{headerShown: false}}
         />
@@ -23,13 +24,13 @@ const App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="homepage"
-          component={HomePage}
+          name="status"
+          component={StatusScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="test"
-          component={Test}
+          name="home"
+          component={BottomTabs}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

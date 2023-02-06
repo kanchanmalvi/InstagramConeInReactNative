@@ -1,34 +1,52 @@
 export default [
   {
+    id: 1,
+    name: 'Your Story',
+    image: require('./assets/img/story.jpg'),
+  },
+  {
+    id: 0,
     name: 'Neha',
-    image: require('./assests/img/instalogo.png'),
+    image: require('./assets/img/instalogo.png'),
   },
   {
+    id: 0,
     name: 'Roshan',
-    image: require('./assests/img/userImg.png'),
+    image: require('./assets/img/userImg.png'),
   },
   {
+    id: 0,
     name: 'Payal',
-    image: require('./assests/img/signup.png'),
+    image: require('./assets/img/signup.png'),
   },
   {
+    id: 0,
     name: 'Raju',
-    image: require('./assests/img/black.webp'),
+    image: require('./assets/img/black.webp'),
   },
   {
+    id: 0,
     name: 'Dev',
-    image: require('./assests/img/logincover.jpg'),
+    image: require('./assets/img/logincover.jpg'),
   },
   {
+    id: 0,
     name: 'Roshani',
-    image: require('./assests/img/order.png'),
+    image: require('./assets/img/order.png'),
   },
   {
+    id: 0,
     name: 'Pankaj',
-    image: require('./assests/img/logo.png'),
+    image: require('./assets/img/logo.png'),
   },
   {
+    id: 0,
     name: 'Mohini',
-    image: require('./assests/img/loginImage.png'),
+    image: require('./assets/img/loginImage.png'),
+  },
+  {
+    id: 0,
+    name: 'Siri',
+    image: require('./assets/img/loginImage.png'),
   },
 ];

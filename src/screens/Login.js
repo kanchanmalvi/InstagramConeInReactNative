@@ -11,7 +11,6 @@ import {
 import {useForm, Controller} from 'react-hook-form';
 import React, {useState, useEffect} from 'react';
 import {CommonActions, useNavigation} from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient';
 
 const Login = () => {
   const Navigation = useNavigation();
@@ -29,12 +28,13 @@ const Login = () => {
 
   const onsubmit = async data => {
     console.log(data, 'data');
-    Navigation.navigate('homepage');
+    Navigation.navigate('home');
+    reset();
   };
   return (
     <View style={styles.container}>
       <View>
-        <Image source={require('../../assests/img/InstagramLogo.png')} />
+        <Image source={require('../../assets/img/InstagramLogo.png')} />
       </View>
 
       <View style={{width: '100%', margin: 10}}>

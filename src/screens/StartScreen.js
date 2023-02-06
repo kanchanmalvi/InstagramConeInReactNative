@@ -7,11 +7,11 @@ const StartScreen = () => {
   return (
     <View style={styles.container}>
       <View>
-        <Image source={require('../../assests/img/InstagramLogo.png')} />
+        <Image source={require('../../assets/img/InstagramLogo.png')} />
       </View>
       <View>
         <Image
-          source={require('../../assests/img/instalogo.png')}
+          source={require('../../assets/img/instalogo.png')}
           style={styles.userImage}
         />
       </View>
