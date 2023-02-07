@@ -1,6 +1,5 @@
 import {
   FlatList,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -13,7 +12,6 @@ import React, {useState, useEffect} from 'react';
 import InstaHomeFirstPage from '../components/InstaHomeFirstPage';
 import Post from '../../Post';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 import Feather from 'react-native-vector-icons/Feather';
 
 const HomePage = () => {
@@ -83,65 +81,82 @@ const HomePage = () => {
                       size={25}
                       style={{
                         paddingRight: 10,
-                        fontSize: 20,
+                        fontSize: 22,
                         color: state ? 'red' : 'black',
                       }}
                     />
                   </TouchableOpacity>
 
                   <TouchableOpacity>
-                    <Fontisto
-                      name="comment"
-                      style={{fontSize: 20, paddingRight: 10}}
+                    <Image
+                      source={require('../../assets/img/comm.png')}
+                      style={{
+                        width: 24,
+                        height: 24,
+                      }}
                     />
                   </TouchableOpacity>
 
                   <TouchableOpacity>
-                    <Feather name="send" style={{fontSize: 20}} />
+                    <Image
+                      source={require('../../assets/img/share.png')}
+                      style={{
+                        width: 23,
+                        height: 21,
+                        marginTop: 2,
+                        marginLeft: 8,
+                      }}
+                    />
                   </TouchableOpacity>
                 </View>
 
                 <TouchableOpacity>
-                  <Feather name="bookmark" style={{fontSize: 20}} />
+                  <Image
+                    source={require('../../assets/img/bookMark.png')}
+                    style={{
+                      width: 21,
+                      height: 21,
+                    }}
+                  />
                 </TouchableOpacity>
               </View>
 
               {/* Likes and Comment Section */}
 
-              <View style={styles.iconStyle}>
+              <View style={styles.iconStyleView}>
                 <Text>
                   {state ? 'you and ' : ''}
                   {state ? item.likes + 1 : item.likes}
                 </Text>
-              </View>
-              <Text
-                style={{
-                  lineHeight: 20,
-                  fontWeight: '700',
-                  fontSize: 14,
-                  paddingVertical: 2,
-                }}>
-                {item.comment}
-              </Text>
-              <Text style={{opacity: 0.4, paddingVertical: 2}}>
-                View all comments
-              </Text>
-              <View>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Image
-                    source={item.nameimage}
-                    style={{
-                      width: 25,
-                      height: 25,
-                      borderRadius: 100,
-                      backgroundColor: 'orange',
-                      marginRight: 10,
-                    }}
-                  />
-                  <TextInput
-                    placeholder="Add a comment"
-                    style={{opacity: 0.5}}
-                  />
+                <Text
+                  style={{
+                    lineHeight: 20,
+                    fontWeight: '700',
+                    fontSize: 14,
+                    paddingVertical: 2,
+                  }}>
+                  {item.comment}
+                </Text>
+                <Text style={{opacity: 0.4, paddingVertical: 2}}>
+                  View all comments
+                </Text>
+                <View>
+                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Image
+                      source={item.nameimage}
+                      style={{
+                        width: 25,
+                        height: 25,
+                        borderRadius: 100,
+                        backgroundColor: 'orange',
+                        marginRight: 10,
+                      }}
+                    />
+                    <TextInput
+                      placeholder="Add a comment"
+                      style={{opacity: 0.5}}
+                    />
+                  </View>
                 </View>
               </View>
             </View>
@@ -173,5 +188,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
+  },
+  iconStyleView: {
+    marginHorizontal: 10,
   },
 });
