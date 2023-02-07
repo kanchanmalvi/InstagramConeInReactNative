@@ -1,0 +1,38 @@
+export default [
+  {
+    id: 1,
+    name: 'Cartoon',
+    video: require('./assets/videos/video1.mp4'),
+    desc: 'this is video of Cartoon',
+    likes: '187 likes',
+    nameimage: require('./assets/img/rating.png'),
+    isLiked: false,
+  },
+  {
+    id: 2,
+    name: 'Krishnaji',
+    video: require('./assets/videos/video2.mp4'),
+    desc: 'this is video of Krishnaji',
+    likes: '187 likes',
+    nameimage: require('./assets/img/rating.png'),
+    isLiked: true,
+  },
+  {
+    id: 3,
+    name: 'Ganeshji',
+    video: require('./assets/videos/video3.mp4'),
+    desc: 'this is video of Ganeshji',
+    likes: '187 likes',
+    nameimage: require('./assets/img/rating.png'),
+    isLiked: true,
+  },
+  {
+    id: 4,
+    name: 'Tom and Jerry',
+    video: require('./assets/videos/video4.mp4'),
+    desc: 'this is video of Tom and Jerry',
+    likes: '187 likes',
+    isLiked: false,
+    nameimage: require('./assets/img/rating.png'),
+  },
+];
