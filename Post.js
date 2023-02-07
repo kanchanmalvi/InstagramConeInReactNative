@@ -8,6 +8,7 @@ export default [
     nameimage: require('./assets/img/camera.jpg'),
     postimage: require('./assets/img/forest.jpg'),
     likeimage: require('./assets/img/signup.png'),
+    isLiked: true,
   },
   {
     likes: '187 likes',
@@ -17,6 +18,7 @@ export default [
     nameimage: require('./assets/img/rating.png'),
     postimage: require('./assets/img/order.png'),
     likeimage: require('./assets/img/logo.png'),
+    isLiked: false,
   },
   {
     likes: 'likes by raj and 55,0897 others',
@@ -26,5 +28,6 @@ export default [
     nameimage: require('./assets/img/temple.jpg'),
     postimage: require('./assets/img/logincover.jpg'),
     likeimage: require('./assets/img/users.png'),
+    isLiked: false,
   },
 ];

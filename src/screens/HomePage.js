@@ -7,22 +7,23 @@ import {
   Image,
   TouchableOpacity,
   StatusBar,
+  TextInput,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import InstaHomeFirstPage from '../components/InstaHomeFirstPage';
 import Post from '../../Post';
-import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import Feather from 'react-native-vector-icons/Feather';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const HomePage = () => {
   const [post, setPost] = useState([]);
+  const [state, setState] = useState(post.isLiked);
 
   useEffect(() => {
     setPost(Post);
   }, []);
+
   return (
     <View style={{height: '100%', backgroundColor: 'white'}}>
       <StatusBar
@@ -37,14 +38,19 @@ const HomePage = () => {
         keyExtractor={item => item.id}
         renderItem={({item}) => {
           return (
-            <View style={{marginVertical: 10}}>
+            <View
+              style={{
+                paddingBottom: 10,
+                borderBottomColor: 'gray',
+                borderBottomWidth: 0.1,
+              }}>
               <View style={styles.userName}>
                 <View style={styles.ImageName}>
                   <Image
                     source={item?.nameimage}
-                    style={{width: 40, height: 40, borderRadius: 20}}
+                    style={{width: 40, height: 40, borderRadius: 100}}
                   />
-                  <View>
+                  <View style={{paddingLeft: 5}}>
                     <Text style={{fontSize: 12, marginLeft: 10}}>
                       {item?.profileName}
                     </Text>
@@ -53,59 +59,90 @@ const HomePage = () => {
                     </Text>
                   </View>
                 </View>
-                <View>
+                <TouchableOpacity>
+                  <Feather name="more-vertical" style={{fontSize: 20}} />
+                </TouchableOpacity>
+              </View>
+              <View
+                style={{
+                  position: 'relative',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Image
+                  source={item?.postimage}
+                  style={{width: '100%', height: 350}}
+                />
+              </View>
+
+              <View style={styles.iconNameStyle}>
+                <View style={styles.iconStyle}>
+                  <TouchableOpacity onPress={() => setState(!state)}>
+                    <AntDesign
+                      name={state ? 'heart' : 'hearto'}
+                      size={25}
+                      style={{
+                        paddingRight: 10,
+                        fontSize: 20,
+                        color: state ? 'red' : 'black',
+                      }}
+                    />
+                  </TouchableOpacity>
+
                   <TouchableOpacity>
-                    <Entypo name="dots-three-horizontal" size={25} />
+                    <Fontisto
+                      name="comment"
+                      style={{fontSize: 20, paddingRight: 10}}
+                    />
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Feather name="send" style={{fontSize: 20}} />
                   </TouchableOpacity>
                 </View>
+
+                <TouchableOpacity>
+                  <Feather name="bookmark" style={{fontSize: 20}} />
+                </TouchableOpacity>
               </View>
-              <Image
-                source={item?.postimage}
-                style={{width: 400, height: 330}}
-              />
 
-              <View style={{margin: 10}}>
-                <View style={styles.iconNameStyle}>
-                  <View style={styles.iconStyle}>
-                    <TouchableOpacity style={{margin: 5}}>
-                      <AntDesign
-                        name="hearto"
-                        size={25}
-                        style={{color: 'red'}}
-                      />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{margin: 5}}>
-                      <EvilIcons
-                        name="comment"
-                        size={35}
-                        style={{color: 'black'}}
-                      />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{margin: 5}}>
-                      <Feather name="send" size={25} style={{color: 'black'}} />
-                    </TouchableOpacity>
-                  </View>
-                  <View>
-                    <TouchableOpacity style={{margin: 5}}>
-                      <FontAwesome name="bookmark-o" size={28} />
-                    </TouchableOpacity>
-                  </View>
-                </View>
-                {/* Likes and Comment Section */}
+              {/* Likes and Comment Section */}
 
-                <View style={styles.iconStyle}>
+              <View style={styles.iconStyle}>
+                <Text>
+                  {state ? 'you and ' : ''}
+                  {state ? item.likes + 1 : item.likes}
+                </Text>
+              </View>
+              <Text
+                style={{
+                  lineHeight: 20,
+                  fontWeight: '700',
+                  fontSize: 14,
+                  paddingVertical: 2,
+                }}>
+                {item.comment}
+              </Text>
+              <Text style={{opacity: 0.4, paddingVertical: 2}}>
+                View all comments
+              </Text>
+              <View>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <Image
-                    source={item?.likeimage}
+                    source={item.nameimage}
                     style={{
-                      width: 20,
-                      height: 20,
+                      width: 25,
+                      height: 25,
+                      borderRadius: 100,
+                      backgroundColor: 'orange',
                       marginRight: 10,
-                      borderRadius: 10,
                     }}
                   />
-                  <Text>{item.likes}</Text>
+                  <TextInput
+                    placeholder="Add a comment"
+                    style={{opacity: 0.5}}
+                  />
                 </View>
-                <Text style={{lineHeight: 20}}>{item.comment}</Text>
               </View>
             </View>
           );
@@ -121,10 +158,12 @@ const styles = StyleSheet.create({
   userName: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 10,
+    padding: 15,
+    alignItems: 'center',
   },
   ImageName: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
   },
   iconStyle: {
@@ -133,5 +172,6 @@ const styles = StyleSheet.create({
   iconNameStyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    padding: 10,
   },
 });

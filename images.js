@@ -7,17 +7,17 @@ export default [
   {
     id: 0,
     name: 'Neha',
-    image: require('./assets/img/instalogo.png'),
+    image: require('./assets/img/donald.jpg'),
   },
   {
     id: 0,
     name: 'Roshan',
-    image: require('./assets/img/userImg.png'),
+    image: require('./assets/img/micky.png'),
   },
   {
     id: 0,
     name: 'Payal',
-    image: require('./assets/img/signup.png'),
+    image: require('./assets/img/ystory.jpg'),
   },
   {
     id: 0,
@@ -27,17 +27,17 @@ export default [
   {
     id: 0,
     name: 'Dev',
-    image: require('./assets/img/logincover.jpg'),
+    image: require('./assets/img/imgnew.jpg'),
   },
   {
     id: 0,
     name: 'Roshani',
-    image: require('./assets/img/order.png'),
+    image: require('./assets/img/pics.jpg'),
   },
   {
     id: 0,
     name: 'Pankaj',
-    image: require('./assets/img/logo.png'),
+    image: require('./assets/img/cartoon.jpg'),
   },
   {
     id: 0,
