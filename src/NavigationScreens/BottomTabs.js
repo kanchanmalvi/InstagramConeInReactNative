@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -6,7 +6,6 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import HomePage from '../screens/HomePage';
 import ReelsScreen from '../screens/ReelsScreen';
 import SearchScreen from '../screens/SearchScreen';
-import PostScreen from '../screens/FavoriteScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import FavoriteScreen from '../screens/FavoriteScreen';
 
@@ -14,7 +13,8 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
   return (
-    <Tab.Navigator tabBarOptions={{showLabel: false}}>
+    <Tab.Navigator
+      tabBarOptions={{showLabel: false, keyboardHidesTabBar: true}}>
       <Tab.Screen
         name="home"
         component={HomePage}

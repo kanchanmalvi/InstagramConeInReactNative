@@ -12,6 +12,8 @@ import React, {useState} from 'react';
 import SearchBox from '../components/SearchBox';
 import SearchContent from '../components/SearchContent';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const SearchScreen = () => {
   const [images, setImages] = useState(null);
@@ -46,7 +48,7 @@ const SearchScreen = () => {
             zIndex: 1,
             width: '100%',
             height: '100%',
-            backgroundColor: 'rgba(52,52,52,,52,0.8)',
+            backgroundColor: 'rgba(52,52,52,0.8)',
           }}>
           <StatusBar backgroundColor={'#525252'} barStyle="dark-content" />
           <View
@@ -79,6 +81,18 @@ const SearchScreen = () => {
               </View>
             </View>
             <Image source={images} style={{width: '100%', height: '80%'}} />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                alignItems: 'center',
+                padding: 8,
+                width: '100%',
+              }}>
+              <Ionicons name="ios-heart-outline" style={{fontSize: 26}} />
+              <Ionicons name="person-circle-outline" style={{fontSize: 26}} />
+              <Feather name="send" style={{fontSize: 26}} />
+            </View>
           </View>
         </View>
       ) : null}
