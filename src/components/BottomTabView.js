@@ -1,28 +1,27 @@
-import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  FlatList,
+  Image,
+  Dimensions,
+} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
+import images from '../../images';
 
 const BottomTabView = () => {
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
+
   const Tab = createMaterialTopTabNavigator();
 
-  let squares = [];
-  let numberOfSquare = 7;
+  const [image, setImage] = useState([]);
 
-  for (let index = 0; index < numberOfSquare; index++) {
-    squares.push(
-      <View key={index}>
-        <View
-          style={{
-            width: 130,
-            height: 150,
-            marginVertical: 0.5,
-            backgroundColor: 'black',
-            opacity: 0.1,
-          }}></View>
-      </View>,
-    );
-  }
+  useEffect(() => {
+    setImage(images);
+  }, []);
 
   const Posts = () => {
     return (
@@ -42,7 +41,20 @@ const BottomTabView = () => {
             paddingVertical: 5,
             justifyContent: 'space-between',
           }}>
-          {squares}
+          <FlatList
+            data={image}
+            numColumns={3}
+            renderItem={({item}) => {
+              return (
+                <View style={{width: 120, height: 120, margin: 5}}>
+                  <Image
+                    source={item.image}
+                    style={{width: 120, height: 120}}
+                  />
+                </View>
+              );
+            }}
+          />
         </View>
       </ScrollView>
     );
@@ -65,7 +77,20 @@ const BottomTabView = () => {
             paddingVertical: 5,
             justifyContent: 'space-between',
           }}>
-          {squares}
+          <FlatList
+            data={image}
+            numColumns={3}
+            renderItem={({item}) => {
+              return (
+                <View style={{padding: 10, flex: 1, alignItems: 'center'}}>
+                  <Image
+                    source={item.image}
+                    style={{width: 120, height: 120}}
+                  />
+                </View>
+              );
+            }}
+          />
         </View>
       </ScrollView>
     );
@@ -88,7 +113,25 @@ const BottomTabView = () => {
             paddingVertical: 5,
             justifyContent: 'space-between',
           }}>
-          {squares}
+          <FlatList
+            data={image}
+            horizontal={false}
+            renderItem={({item}) => {
+              return (
+                <View
+                  style={{
+                    padding: 10,
+                    flex: 1,
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={item.image}
+                    style={{width: 120, height: 120}}
+                  />
+                </View>
+              );
+            }}
+          />
         </View>
       </ScrollView>
     );

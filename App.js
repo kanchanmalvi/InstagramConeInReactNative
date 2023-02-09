@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabs from './src/NavigationScreens/BottomTabs';
 import StartScreen from './src/screens/StartScreen';
 import StatusScreen from './src/screens/StatusScreen';
+import EditProfile from './src/screens/EditProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,11 @@ const App = () => {
         <Stack.Screen
           name="status"
           component={StatusScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="editprofile"
+          component={EditProfile}
           options={{headerShown: false}}
         />
         <Stack.Screen
