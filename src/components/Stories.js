@@ -7,23 +7,26 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 import images from '../../images';
 import {useNavigation} from '@react-navigation/native';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 const Stories = () => {
   const [img, setImg] = useState([]);
+
   const Navigation = useNavigation();
+
   useEffect(() => {
     setImg(images);
   }, []);
+
   return (
     <View style={styles.imageSection}>
       <FlatList
         data={img}
         showsHorizontalScrollIndicator={false}
         horizontal
+        keyExtractor={item => `${item.id}`}
         renderItem={({item}) => {
           return (
             <TouchableOpacity

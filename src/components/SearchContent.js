@@ -1,7 +1,6 @@
 import {
   FlatList,
   StyleSheet,
-  Text,
   TouchableOpacity,
   Image,
   View,
@@ -20,6 +19,7 @@ const SearchContent = ({data}) => {
     <View>
       <FlatList
         data={searchImg}
+        keyExtractor={item => `${item.id}`}
         renderItem={({item}) => {
           return (
             <>

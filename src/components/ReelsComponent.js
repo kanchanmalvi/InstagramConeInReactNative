@@ -19,7 +19,7 @@ const ReelsComponent = () => {
       onChangeIndex={HashChangeIndexValue}
       currentIndex={currentIndex}
       vertical={true}
-      keyExtractor={(item, index) => index}
+      keyExtractor={item => `${item.id}`}
       renderItem={({item, index}) => (
         <SingleReel item={item} index={index} currentIndex={currentIndex} />
       )}

@@ -33,7 +33,7 @@ const HomePage = () => {
 
       <FlatList
         data={post}
-        keyExtractor={item => item.id}
+        keyExtractor={item => `${item.id}`}
         renderItem={({item}) => {
           return (
             <View

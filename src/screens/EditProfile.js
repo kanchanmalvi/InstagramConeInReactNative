@@ -7,8 +7,10 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 const EditProfile = () => {
+  const Navigation = useNavigation();
   return (
     <View style={{height: '100%', backgroundColor: 'white'}}>
       <View
@@ -24,7 +26,7 @@ const EditProfile = () => {
         <Text style={{color: 'Black', fontSize: 19, fontWeight: '500'}}>
           Edit Profile
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => Navigation.goBack()}>
           <Text style={{color: '#3897F0', fontSize: 18}}>Done</Text>
         </TouchableOpacity>
       </View>

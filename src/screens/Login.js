@@ -11,6 +11,7 @@ import {
 import {useForm, Controller} from 'react-hook-form';
 import React, {useState, useEffect} from 'react';
 import {CommonActions, useNavigation} from '@react-navigation/native';
+import axios from 'axios';
 
 const Login = () => {
   const Navigation = useNavigation();
@@ -27,8 +28,20 @@ const Login = () => {
   });
 
   const onsubmit = async data => {
-    console.log(data, 'data');
-    Navigation.navigate('home');
+    try {
+      let url = 'http://10.0.2.2:5000/login';
+      let body = {
+        email: data.email,
+        password: data.password,
+      };
+      const res = await axios.post(url, body, null, 'login');
+      console.log(res, 'api response');
+      Navigation.navigate('home');
+    } catch (error) {
+      alert('Invalid Credientials');
+      console.log(error, 'error');
+    }
+
     reset();
   };
   return (

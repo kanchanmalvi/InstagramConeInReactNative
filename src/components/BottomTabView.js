@@ -12,9 +12,6 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 import images from '../../images';
 
 const BottomTabView = () => {
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
-
   const Tab = createMaterialTopTabNavigator();
 
   const [image, setImage] = useState([]);

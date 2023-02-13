@@ -1,5 +1,6 @@
 export default [
   {
+    id: 0,
     likes: 'likes by kanchan and 55,348 others',
     profileName: 'Kanchan',
     place: 'Bhopal MP, India',
@@ -11,6 +12,7 @@ export default [
     isLiked: true,
   },
   {
+    id: 1,
     likes: '187 likes',
     profileName: 'Radha',
     place: 'Jabalpur MP, India',
@@ -21,6 +23,7 @@ export default [
     isLiked: false,
   },
   {
+    id: 2,
     likes: 'likes by raj and 55,0897 others',
     profileName: 'Raj',
     place: 'Delhi UP, India',
